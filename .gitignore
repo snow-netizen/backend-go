@@ -1,0 +1,81 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+admin-system-go
+admin-system-go.exe
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool
+*.out
+coverage.html
+coverage.txt
+
+# Go workspace file
+go.work
+
+# Dependency directories
+vendor/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Log files
+*.log
+logs/
+*.log.*
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+
+# Build output
+bin/
+build/
+dist/
+
+# Swagger generated files (regenerate with swag init)
+docs/docs.go
+docs/swagger.json
+docs/swagger.yaml
+
+# Config files (use .env.example instead)
+config/config.yaml
+
+# OS specific files
+Thumbs.db
+.DS_Store
+*.DS_Store
+
+# Debug files
+debug
+debug.test
+__debug_bin
+
+# Air live reload
+tmp/
+.air.toml
+
+# Test cache
+.cache/
