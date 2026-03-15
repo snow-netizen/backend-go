@@ -1,0 +1,75 @@
+app:
+  name: "admin-system-go"
+  version: "1.0.0"
+  env: "development" # development, testing, production
+  port: 8000
+  host: "127.0.0.1"
+  read_timeout: 30
+  write_timeout: 30
+
+jwt:
+  secret: "k3X9zL2vN8qR5wT7yJ1mP4cB6dV0aZ9xH3sI7eD5uG1jK8nW2oQ6tY4iL9vC3bN7m"
+  issuer: "admin-system-go"
+  audience: "admin-system-users"
+  access_token_expiry: 3600  # 1小时
+  refresh_token_expiry: 604800  # 7天
+
+database:
+  driver: "sqlite" # sqlite, postgres, mysql
+  dsn: "admin_system.db" # 对于sqlite是文件路径，对于postgres是连接字符串
+  max_open_conns: 100
+  max_idle_conns: 20
+  conn_max_lifetime: 300
+
+security:
+  password_cost: 12  # bcrypt cost
+  captcha:
+    width: 120
+    height: 40
+    length: 4
+    expiry: 300  # 5分钟
+  login:
+    max_failures: 5
+    lock_duration: 900  # 15分钟
+  rate_limit:
+    enabled: true
+    requests_per_second: 10
+    burst: 30
+
+cors:
+  allowed_origins:
+    - "http://localhost:3000"
+    - "http://localhost:5173"
+    - "http://127.0.0.1:8080"
+    - "http://localhost:8080"
+    - "*"
+  allowed_methods:
+    - "GET"
+    - "POST"
+    - "PUT"
+    - "DELETE"
+    - "PATCH"
+    - "OPTIONS"
+  allowed_headers:
+    - "Origin"
+    - "Content-Type"
+    - "Accept"
+    - "Authorization"
+    - "X-Requested-With"
+  allow_credentials: true
+  max_age: 86400
+
+superuser:
+  username: "admin"
+  email: "admin@example.com"
+  password: "admin123"
+
+log:
+  level: "info"           # debug, info, warn, error
+  format: "console"       # console或json
+  output_path: ""         # 文件路径，空则输出到stdout
+  max_size: 100           # 日志文件轮转大小(MB)
+  max_backups: 7          # 保留备份数
+  max_age: 30             # 保留天数
+  enable_db_log: false    # 是否启用详细SQL日志
+  slow_query_threshold: 200  # 慢查询阈值(ms)
